@@ -11,14 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import id.ac.unpas.pertemuan8_193040154.screens.PengelolaanSampahScreen
-import id.ac.unpas.pertemuan8_193040154.ui.theme.Pertemuan8193040159Theme
+import id.ac.unpas.pertemuan8_193040154.ui.theme.Pertemuan8Theme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Pertemuan8193040159Theme {
+            Pertemuan8Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Pertemuan8193040159Theme {
+    Pertemuan8Theme {
         PengelolaanSampahScreen()
     }
 }

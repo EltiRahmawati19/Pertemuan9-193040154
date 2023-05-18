@@ -4,7 +4,13 @@ import com.skydoves.sandwich.ApiResponse
 import id.ac.unpas.pertemuan8_193040154.model.SetoranSampah
 import id.ac.unpas.pertemuan8_193040154.networks.SetoranSampahGetResponse
 import id.ac.unpas.pertemuan8_193040154.networks.SetoranSampahSingleGetResponse
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface SetoranSampahApi {
     @GET("api/setoran-sampah")

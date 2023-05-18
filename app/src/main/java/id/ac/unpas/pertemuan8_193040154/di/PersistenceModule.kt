@@ -6,8 +6,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import id.ac.unpas.pertemuan8_193040159.persistences.AppDatabase
-import id.ac.unpas.pertemuan8_193040159.persistences.SetoranSampahDao
+import id.ac.unpas.pertemuan8_193040154.persistences.AppDatabase
+import id.ac.unpas.pertemuan8_193040154.persistences.SetoranSampahDao
 import javax.inject.Singleton
 
 @Module

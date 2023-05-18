@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
@@ -30,13 +31,16 @@ import kotlinx.coroutines.launch
 @Composable
 fun FormPencatatanSampah()
 {
+
     val viewModel = hiltViewModel<PengelolaanSampahViewModel>()
 
     val tanggal = remember { mutableStateOf(TextFieldValue(""))}
     val nama = remember { mutableStateOf(TextFieldValue(""))}
     val berat = remember { mutableStateOf(TextFieldValue(""))}
-
+    val isLoading = remember { mutableStateOf(false) }
+    val buttonLabel = if (isLoading.value) "Mohon tunggu..." else "Simpan"
     val scope = rememberCoroutineScope()
+
 
     Column(modifier = Modifier
         .padding(10.dp)
@@ -94,14 +98,14 @@ fun FormPencatatanSampah()
             Button(modifier = Modifier.weight(5f), onClick = {
                 val id = uuid4().toString()
                 scope.launch {
-                    viewModel.insert(id, tanggal.value.text, nama.value.text, berat.value.text)
+                    viewModel.insert(tanggal.value.text, nama.value.text, berat.value.text)
                     tanggal.value = TextFieldValue("")
                     nama.value = TextFieldValue("")
                     berat.value = TextFieldValue("")
                 }
             }, colors = loginButtonColors) {
                 Text(
-                    text = "Simpan",
+                    text = buttonLabel,
                     style = TextStyle(
                         color = Color.White,
                         fontSize = 18.sp
@@ -119,6 +123,9 @@ fun FormPencatatanSampah()
                         color = Color.White, fontSize = 18.sp
                     ), modifier = Modifier.padding(8.dp)
                 )
+                viewModel.isLoading.observe(LocalLifecycleOwner.current) {
+                    isLoading.value = it
+                }
             }
         }
     }

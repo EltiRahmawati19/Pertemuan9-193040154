@@ -5,9 +5,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
-import id.ac.unpas.pertemuan8_193040159.networks.SetoranSampahApi
-import id.ac.unpas.pertemuan8_193040159.persistences.SetoranSampahDao
-import id.ac.unpas.pertemuan8_193040159.repositories.SetoranSampahRepository
+import id.ac.unpas.pertemuan8_193040154.networks.SetoranSampahApi
+import id.ac.unpas.pertemuan8_193040154.persistences.SetoranSampahDao
+import id.ac.unpas.pertemuan8_193040154.repositories.SetoranSampahRepository
 
 @Module
 @InstallIn (ViewModelComponent::class)

@@ -1,7 +1,10 @@
 package id.ac.unpas.pertemuan8_193040154.repositories
 
 import com.benasher44.uuid.uuid4
-import com.skydoves.sandwich.*
+import com.skydoves.sandwich.message
+import com.skydoves.sandwich.suspendOnError
+import com.skydoves.sandwich.suspendOnException
+import com.skydoves.sandwich.suspendOnSuccess
 import com.skydoves.whatif.whatIfNotNull
 import id.ac.unpas.pertemuan8_193040154.model.SetoranSampah
 import id.ac.unpas.pertemuan8_193040154.networks.SetoranSampahApi
@@ -45,8 +48,8 @@ class SetoranSampahRepository @Inject constructor(
         tanggal: String,
         nama: String,
         berat: String,
-        onSuccess: (List<SetoranSampah>) -> Unit,
-        onError: (List<SetoranSampah>, String) -> Unit
+        onSuccess: (SetoranSampah) -> Unit,
+        onError: (SetoranSampah, String) -> Unit
     ) {
         val id = uuid4().toString()
         val item = SetoranSampah(id, tanggal, nama, berat)
@@ -73,8 +76,8 @@ class SetoranSampahRepository @Inject constructor(
         tanggal: String,
         nama: String,
         berat: String,
-        onSuccess: (List<SetoranSampah>) -> Unit,
-        onError: (List<SetoranSampah>, String) -> Unit
+        onSuccess: (SetoranSampah) -> Unit,
+        onError: (SetoranSampah, String) -> Unit
     ) {
         val item = SetoranSampah(id, tanggal, nama, berat)
         dao.insertAll(item)
